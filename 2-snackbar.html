@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/2-snackbar-CnPnI2eu.css">
+  </head>
 
-  <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
-  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbSUbo7J.js">
-  <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-C1gPI-5C.css">
-  <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/2-snackbar-CnPnI2eu.css">
-</head>
-
-<body>
-  <form class="form">
-    <label class="label-delay">
-      Delay (ms) <br />
-      <input class="input-delay" type="number" name="delay" required />
-    </label>
-
-    <fieldset class="fieldset">
-      <legend class="legend">State</legend>
-      <label class="label-fulfilled">
-        <input class="input-fulfilled" type="radio" name="state" value="fulfilled" required />
-        Fulfilled
+  <body>
+    <form class="form">
+      <label class="label-delay">
+        Delay (ms) <br />
+        <input class="input-delay" type="number" name="delay" required />
       </label>
-      <label class="label-rejected">
-        <input class="input-rejected" type="radio" name="state" value="rejected" required />
-        Rejected
-      </label>
-    </fieldset>
 
-    <button class="btn" type="submit">Create notification</button>
-  </form>
+      <fieldset class="fieldset">
+        <legend class="legend">State</legend>
+        <label class="label-fulfilled">
+          <input
+            class="input-fulfilled"
+            type="radio"
+            name="state"
+            value="fulfilled"
+            required
+          />
+          Fulfilled
+        </label>
+        <label class="label-rejected">
+          <input
+            class="input-rejected"
+            type="radio"
+            name="state"
+            value="rejected"
+            required
+          />
+          Rejected
+        </label>
+      </fieldset>
 
-  <a href="./index.html">Go back</a>
-</body>
+      <button class="btn" type="submit">Create notification</button>
+    </form>
 
+    <a href="./index.html">Go back</a>
+  </body>
 </html>
