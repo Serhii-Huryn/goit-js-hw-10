@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./js/1-timer.js" derer></script>
+    <title>GoIT home work #10</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="module" src="./js/1-timer.js" derer></script>
-  <title>GoIT home work #10</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/1-timer.css" />
+  </head>
 
-  <link rel="stylesheet" href="./css/1-timer.css" />
-</head>
+  <body>
+    <input class="input" type="text" id="datetime-picker" />
+    <button class="start-btn" type="button" data-start>Start</button>
 
-<body>
-  <input class="input" type="text" id="datetime-picker" />
-  <button class="start-btn" type="button" data-start>Start</button>
-
-  <div class="timer">
-    <div class="field">
-      <span class="value" data-days>00</span>
-      <span class="label">Days</span>
+    <div class="timer">
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">Seconds</span>
+      </div>
     </div>
-    <div class="field">
-      <span class="value" data-hours>00</span>
-      <span class="label">Hours</span>
-    </div>
-    <div class="field">
-      <span class="value" data-minutes>00</span>
-      <span class="label">Minutes</span>
-    </div>
-    <div class="field">
-      <span class="value" data-seconds>00</span>
-      <span class="label">Seconds</span>
-    </div>
-  </div>
 
-  <a href="./index.html">Go back</a>
-</body>
-
+    <a href="./index.html">Go back</a>
+  </body>
 </html>

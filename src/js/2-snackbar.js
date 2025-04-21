@@ -1,93 +1,61 @@
-import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
-
+// Описаний у документації
 import iziToast from 'izitoast';
+// Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
-const startBtn = document.querySelector('button[data-start]');
-const inputCalendar = document.querySelector('#datetime-picker');
+// import iconError from './img/error.svg';
+// import iconOk from './img/ok.svg';
 
-startBtn.disabled = true;
+const form = document.querySelector('.form');
+const radioFulfilled = document.querySelector('.input-fulfilled');
+const radioRejected = document.querySelector('.input-rejected');
 
-let date;
-let deltaTime;
+form.addEventListener('submit', handleSubmit);
 
-flatpickr('#datetime-picker', {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-        if (selectedDates[0] > Date.now()) {
-            date = selectedDates[0];
-            startBtn.disabled = false;
-            startBtn.classList.add('start-active');
-        } else {
-            iziToast.show({
-                title: 'Error',
-                message: 'Please choose a date in the future',
-                backgroundColor: '#B51B1B',
-                iconUrl: './img/error.svg',
-                timeout: '3000',
-            });
-            startBtn.disabled = true;
-            startBtn.classList.remove('start-active');
-        }
+let delay;
 
-        if (date) {
-            deltaTime = date.getTime() - Date.now();
-        }
-    },
-});
+function handleSubmit(event) {
+  event.preventDefault();
+  delay = Number(event.target.elements.delay.value);
 
-startBtn.addEventListener('click', handleCountdown);
+  const promise = new Promise((resolve, reject) => {
+    if (radioFulfilled.checked) {
+      setTimeout(() => {
+        resolve();
+      }, delay);
+    }
+    if (radioRejected.checked) {
+      setTimeout(() => {
+        reject();
+      }, delay);
+    }
+  });
 
-function handleCountdown() {
-    inputCalendar.style.cursor = 'default';
-    startBtn.classList.remove('start-active');
+  const success = {
+    title: 'OK',
+    message: `Fulfilled promise in ${delay}ms`,
+    messageColor: '#ffffff',
+    backgroundColor: '#59a10d',
+    position: 'bottomCenter',
+    iconUrl: './img/ok.svg',
+  };
+  const error = {
+    title: 'Error',
+    message: `Rejected promise in ${delay}ms`,
+    messageColor: '#ffffff',
+    backgroundColor: '#ef4040',
+    position: 'bottomCenter',
+    iconUrl: './img/error.svg',
+    // iconError
+  };
 
-    const days = document.querySelector('.value[data-days]');
-    const hours = document.querySelector('.value[data-hours]');
-    const minutes = document.querySelector('.value[data-minutes]');
-    const seconds = document.querySelector('.value[data-seconds]');
+  promise
+    .then(() => {
+      iziToast.show(success);
+    })
+    .catch(() => {
+      iziToast.show(error);
+    });
 
-    const countdownInterval = setInterval(() => {
-        if (deltaTime > 997) {
-            startBtn.disabled = true;
-            inputCalendar.disabled = true;
-
-            deltaTime = date.getTime() - Date.now();
-            const currentValue = convertMs(deltaTime);
-
-            days.innerHTML = `${String(currentValue.days).padStart(2, '0')}`;
-            hours.innerHTML = `${String(currentValue.hours).padStart(2, '0')}`;
-            minutes.innerHTML = `${String(currentValue.minutes).padStart(2, '0')}`;
-            seconds.innerHTML = `${String(currentValue.seconds).padStart(2, '0')}`;
-        } else {
-            inputCalendar.disabled = false;
-            inputCalendar.style.cursor = 'pointer';
-
-            clearInterval(countdownInterval);
-            return;
-        }
-    }, 1000);
-}
-
-function convertMs(ms) {
-    // Number of milliseconds per unit of time
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-
-    // Remaining days
-    const days = Math.floor(ms / day);
-    // Remaining hours
-    const hours = Math.floor((ms % day) / hour);
-    // Remaining minutes
-    const minutes = Math.floor(((ms % day) % hour) / minute);
-    // Remaining seconds
-    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
-    return { days, hours, minutes, seconds };
+  form.reset();
 }
