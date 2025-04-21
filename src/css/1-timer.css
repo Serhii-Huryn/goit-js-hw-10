@@ -1,84 +1,44 @@
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-
-  margin: 0;
-  padding: 36px 156px;
+#datetime-picker {
+    padding: 8px 16px;
+    font-size: 24px;
+    color: #2E2F42;
+    border-radius: 4px;
 }
 
-.input {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-
-  letter-spacing: 0.04em;
-  color: #2e2f42;
-
-  width: 274px;
-
-  padding: 8px 16px;
-  margin-right: 8px;
-  margin-bottom: 32px;
-
-  border: 1px solid #808080;
-  border-radius: 4px;
+[data-start] {
+    background-color: #4E75FF;
+    color: #fff;
+    width: 75px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 24px;
+    border: none;
 }
 
-.start-btn {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 0.04em;
-
-  color: #ffffff;
-  background-color: #cfcfcf;
-
-  width: 75px;
-  height: 37px;
-  border-radius: 8px;
-  border: none;
-  padding: 8px 16px;
-
-  cursor: default;
+[data-start]:hover {
+    background-color: #6C8CFF;
+    color: #FFFFFF;
 }
 
-.start-active {
-  background-color: #4e75ff;
-  cursor: pointer;
-
-  transform: background-color;
-  transition: background-color 250ms linear;
-}
-
-.start-active:hover {
-  background-color: #6c8cff;
+[data-start]:disabled {
+    background-color: #989898;
+    color: #CFCFCF;
 }
 
 .timer {
-  display: flex;
-  gap: 24px;
-
-  width: 346px;
-  margin-bottom: 30px;
+    display: flex;
+    gap: 24px;
 }
 
 .field {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .value {
-  font-size: 40px;
-
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  color: #2e2f42;
+    font-size: 48px;
 }
 
 .label {
-  font-size: 16px;
-
-  color: #2e2f42;
+    font-size: 24px;
 }
